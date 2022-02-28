@@ -1,0 +1,126 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}Banking System{% endblock %}
+
+{% block content %}
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+    <p class="font-bold">Error!</p>
+    <p class="block sm:inline">{{ error }}</p>
+</div>
+{% endfor %}
+{% endif %}
+<h1 class="font-mono font-bold text-3xl text-center pb-5 pt-10">User Details</h1>
+<hr>
+<div class="w-full mt-10">
+    <form method="post" class="bg-white shadow-md rounded px-2 pt-2 pb-4 mb-2">
+        <div class="wrapper">
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                    <label for="tab-1" class="tab-label">Account Settings</label>
+                    <div class="tab-content">
+                        <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+                            source="custom" name="form" style="padding: 10px;">
+                            <div class="u-form-group u-form-name">
+                                <label for="name-e3cc" class="u-label"><strong>Name:    </strong><span style="color:green">{{name}}</span></label>
+                            </div>
+                            <div class="u-form-email u-form-group">
+                                <label for="email-e3cc" class="u-label"><strong>Email:  </strong><span style="color:green">{{email}}</span></label>
+                            </div>
+                            <div class="u-form-group u-form-phone u-form-group-3">
+                                <label for="phone-6cd9" class="u-label"><strong>Phone Number:   </strong><span style="color:green">{{phone}}</span></label>                
+                            </div>
+                            <div class="u-form-date u-form-group u-form-group-4">
+                                <label for="date-9334" class="u-label"><strong>Birth Date:  </strong><span style="color:green">{{bdate}}</span></label>
+                            </div>
+                            <div class="u-form-group u-form-group-6">
+                                <label for="text-7e06" class="u-label"><strong>Account No:  </strong><span style="color:green">{{acc_no}}</span></label>
+                            </div>
+                            <div class="u-form-group u-form-group-6">
+                                <label for="text-7e06" class="u-label"><strong>Associated Credit Card:  </strong><span style="color:green">{{card}}</span></label>
+                            </div>
+                            <div class="u-form-group u-form-group-6">
+                                <label for="text-7e06" class="u-label"><strong>Balance: </strong><span style="color:green">{{balance}}</span></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<style>
+    * {
+        box-sizing: bordecer-box;
+    }
+
+    .wrapper {
+        max-width: 50rem;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .tabs {
+        position: relative;
+        margin: 3rem 0;
+        background: white;
+        height: 14.75rem;
+    }
+
+    .tabs::before,
+    .tabs::after {
+        content: "";
+        display: table;
+    }
+
+    .tabs::after {
+        clear: both;
+    }
+
+    .tab {
+        float: left;
+    }
+
+    .tab-switch {
+        display: none;
+    }
+
+    .tab-label {
+        position: relative;
+        display: block;
+        line-height: 2.75em;
+        height: 3em;
+        padding: 0 1.618em;
+        background: #323946;
+        border-right: 0.125rem solid #808080;
+        color: #fff;
+        cursor: pointer;
+        top: 0;
+        transition: all 0.25s;
+    }
+
+
+    .tab-content {
+        height: 12rem;
+        position: absolute;
+        z-index: 1;
+        top: 2.75em;
+        left: 0;
+        padding: 1.618rem;
+        background: #fff;
+        color: #2c3e50;
+        opacity: 0;
+        transition: all 0.35s;
+    }
+
+
+    .tab-switch:checked+label+.tab-content {
+        z-index: 2;
+        opacity: 1;
+        transition: all 0.35s;
+    }
+</style>
+{% endblock %}
